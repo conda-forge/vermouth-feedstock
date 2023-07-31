@@ -1,5 +1,5 @@
 {% set name = "vermouth" %}
-{% set version = "0.9.1" %}
+{% set version = "0.9.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vermouth-{{ version }}.tar.gz
-  sha256: 0e1712a680a7e9bf862781a38d948097c07884e9f26e1ddb1d78e7dd943576ac
+  sha256: 082c5f175359d3c99d75e25e093d9cc3d9fc97e8ec45a4bedc537fc01aaa2b04
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
@@ -37,7 +37,7 @@ test:
 
 about:
   home: https://github.com/marrink-lab/vermouth-martinize
-  summary: 'Describe and apply transformation on molecular structures and topologies'
+  summary: Describe and apply transformation on molecular structures and topologies
   license: Apache-2.0
   license_file: LICENSE
 
