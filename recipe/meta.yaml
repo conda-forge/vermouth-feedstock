@@ -1,5 +1,5 @@
 {% set name = "vermouth" %}
-{% set version = "0.9.6" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vermouth-{{ version }}.tar.gz
-  sha256: 811956063a5351444373c7f8b6e7eebd8772c8677b07f9408420b64c454133f8
+  sha256: 2ff36034e63a43bfe5668fc9be8e45ad44e7301d2ce30abb291033f4e4d687da
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
