@@ -11,18 +11,18 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
   number: 0
-  skip: ture  # [win]
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - wheel
     - setuptools >=30.3.0
     - pbr
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - pbr
     - numpy
     - networkx >=2.0,<3.dev0
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/marrink-lab/vermouth-martinize
