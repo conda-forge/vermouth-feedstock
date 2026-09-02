@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: vermouth
-  version: "0.15.0"
+  version: 0.15.0
 
 package:
   name: ${{ name|lower }}
@@ -19,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - wheel
     - setuptools >=30.3.0
     - pbr
