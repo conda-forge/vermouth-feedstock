@@ -1,0 +1,51 @@
+schema_version: 1
+
+context:
+  name: vermouth
+  version: 0.15.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/vermouth-${{ version }}.tar.gz
+  sha256: 30da3ecadf6cda6068677d1a2de8ea62990d98fedd200ae71a05e89442cd0b24
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - wheel
+    - setuptools >=30.3.0
+    - pbr
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pbr
+    - numpy
+    - networkx >=2.0,<3.dev0
+    - scipy
+
+tests:
+  - python:
+      imports:
+        - vermouth
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: Describe and apply transformation on molecular structures and topologies
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/marrink-lab/vermouth-martinize
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
